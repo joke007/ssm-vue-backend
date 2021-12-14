@@ -7,5 +7,8 @@ import java.util.List;
 
 public interface RoleMapper {
     // 查询所有角色, 是否根据某个用户
-    public List<Role> selectAllRoles(User user);
+    public List<Role> selectAllRoles();
+
+    // 添加角色
+    public void insertRole(Role role);
 }
