@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.pojo.Role;
 import com.example.service.RoleService;
-import com.example.util.RestReturn;
+import com.example.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +20,11 @@ public class RoleController {
 
     @RequestMapping("/getRoles")
     @ResponseBody
-    public RestReturn getRoles(@RequestParam(value = "userId", required = false) String userId) {
+    public List<Role> getRoles(@RequestParam(value = "userId", required = false) String userId) {
         System.out.println("userId: " + userId);
         List<Role> roleList = roleService.getRoles(userId);
         System.out.println("roleList: " + roleList);
-        return null;
+//        return null;
+        return roleList;
     }
 }

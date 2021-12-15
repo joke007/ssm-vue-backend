@@ -14,7 +14,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-
     <!-- 加载db.properties文件 -->
     <context:property-placeholder location="classpath:db.properties" />
 
@@ -53,7 +52,7 @@
     </bean>
     
     <!-- 事务增强 -->
-    <tx:advice id="txAdvice">
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- 任何方法 -->
             <tx:method name="*"/>

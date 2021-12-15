@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.RoleMapper">
     <select id="selectAllRoles" parameterType="java.lang.String" resultType="Role">
-        select * from role
+        select * from ex_role
     </select>
 </mapper>

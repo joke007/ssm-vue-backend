@@ -9,9 +9,6 @@ public class Role {
     // 角色名称
     private String roleName;
 
-    // 角色对应的用户，一对多关系
-    private List<User> userList;
-
     public String getId() {
         return id;
     }
@@ -28,20 +25,11 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
-
     @Override
     public String toString() {
         return "Role{" +
                 "id='" + id + '\'' +
                 ", roleName='" + roleName + '\'' +
-                ", userList=" + userList +
                 '}';
     }
 }
