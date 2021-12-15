@@ -1,7 +1,5 @@
 package com.example.pojo;
 
-import java.util.List;
-
 public class User {
     // 用户id
     private String id;
@@ -14,9 +12,6 @@ public class User {
 
     // 用户身份，0：普通用户，1：管理员，2：超级管理员
     private int identity;
-
-    // 用户身份，一对一关系
-    private List<Role> roles;
 
     public String getId() {
         return id;
@@ -50,14 +45,6 @@ public class User {
         this.identity = identity;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -65,7 +52,6 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", identity=" + identity +
-                ", roles=" + roles +
                 '}';
     }
 }
