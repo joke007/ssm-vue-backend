@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/role")
@@ -20,11 +22,14 @@ public class RoleController {
 
     @RequestMapping("/getRoles")
     @ResponseBody
-    public List<Role> getRoles(@RequestParam(value = "userId", required = false) String userId) {
+    public ResponseResult getRoles(@RequestParam(value = "userId", required = false) String userId) {
         System.out.println("userId: " + userId);
         List<Role> roleList = roleService.getRoles(userId);
         System.out.println("roleList: " + roleList);
-//        return null;
-        return roleList;
+        Map<String, List<Role>> roles = new HashMap<>();
+
+        roles.put("roleList", roleList);
+
+        return new ResponseResult().ok().data(roles);
     }
 }

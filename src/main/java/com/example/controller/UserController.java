@@ -5,10 +5,11 @@ import com.example.service.UserService;
 import com.example.util.ResponseResult;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
 
@@ -32,5 +33,16 @@ public class UserController {
         }
 
         return new ResponseResult().code(400).message("请求失败");
+    }
+
+    @GetMapping("index")
+    @ResponseBody
+    public ResponseResult index(){
+//        ResponseResult ok = ResponseResult.ok();
+//        ok.setData("FUCK");
+//        return ok;
+//         ResponseEntity.ok("fucke");
+
+        return new ResponseResult().ok().data(123);
     }
 }

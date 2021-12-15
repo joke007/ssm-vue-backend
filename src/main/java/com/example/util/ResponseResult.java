@@ -14,7 +14,6 @@ public class ResponseResult implements Serializable {
 
     private Object data;
 
-    // 构造器私有
     public ResponseResult(){}
 
     public Boolean getSuccess() {
