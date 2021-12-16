@@ -4,16 +4,16 @@ import java.util.List;
 
 public class Role {
     // 角色ID
-    private String id;
+    private int id;
 
     // 角色名称
     private String roleName;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

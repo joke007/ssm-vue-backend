@@ -2,7 +2,7 @@ package com.example.pojo;
 
 public class User {
     // 用户id
-    private String id;
+    private int id;
 
     // 用户姓名
     private String username;
@@ -10,14 +10,14 @@ public class User {
     // 用户密码
     private String password;
 
-    // 用户身份，0：普通用户，1：管理员，2：超级管理员
-    private int identity;
+    // 用户角色
+    private Role role;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,21 +37,21 @@ public class User {
         this.password = password;
     }
 
-    public int getIdentity() {
-        return identity;
+    public Role getRole() {
+        return role;
     }
 
-    public void setIdentity(int identity) {
-        this.identity = identity;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", identity=" + identity +
+                ", role=" + role +
                 '}';
     }
 }

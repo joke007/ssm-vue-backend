@@ -6,4 +6,8 @@
     <select id="selectAllRoles" parameterType="java.lang.String" resultType="Role">
         select * from ex_role
     </select>
+
+    <select id="selectRoleByUserId" parameterType="int" resultType="Role">
+        select * from ex_role_user ur, ex_role r where ur.roleId = r.id and ur.userId = #{userId}
+    </select>
 </mapper>

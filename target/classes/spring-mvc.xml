@@ -16,6 +16,26 @@
     <!-- 配置controller的注解驱动 -->
     <mvc:annotation-driven />
 
+    <!--自定义拦截器-->
+<!--    <mvc:interceptors>-->
+<!--        &lt;!&ndash;验证是否登录 通过cookie &ndash;&gt;-->
+<!--        <mvc:interceptor>-->
+<!--            &lt;!&ndash; 拦截所有mvc控制器 &ndash;&gt;-->
+<!--            <mvc:mapping path="/**"/>-->
+<!--            <mvc:exclude-mapping path="/checkLogin"/>-->
+<!--            <bean class="com.example.interceptor.TokenInterceptor"></bean>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/user/userLogin" />
+            <mvc:exclude-mapping path="/user/userRegister" />
+            <bean class="com.example.interceptor.TokenInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 配置内部资源视图解析器 -->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 前缀 -->

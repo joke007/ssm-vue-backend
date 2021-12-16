@@ -4,7 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.UserMapper">
     <!-- useGeneratedKeys、keyProperty用来指定插入数据后的返回该记录的自增id -->
-    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id" >
-        insert into ex_user values (#{id}, #{username}, #{password}, #{identity})
+    <insert id="insertUser" parameterType="User">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into ex_user values (#{id}, #{username}, #{password})
     </insert>
+
+    <insert id="insertRoleIdAndUserId">
+        insert into ex_role_user values (#{userId}, #{roleId})
+    </insert>
+
+    <select id="selectUser" parameterType="User" resultType="User">
+        select * from ex_user
+        <where>
+            <if test="id != 0">
+                id=#{id}
+            </if>
+            <if test="username != null">
+                and username=#{username}
+            </if>
+        </where>
+    </select>
 </mapper>
