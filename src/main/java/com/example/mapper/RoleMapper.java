@@ -11,4 +11,7 @@ public interface RoleMapper {
 
     // 添加角色
     public void insertRole(Role role);
+
+    // 查询当前用户的角色
+    public Role selectRoleByUserId(int userId);
 }
