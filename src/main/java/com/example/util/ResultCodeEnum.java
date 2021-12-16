@@ -5,12 +5,18 @@ public enum ResultCodeEnum {
 
     UNKNOWN_ERROR(false, 500, "内部错误,请联系管理员"),
 
-    PARAM_ERROR(false, 501, "参数错误");
+    TOkEN_EXPIRED(false, 401, "token过期"),
+
+    LOGIN_EXPIRED(false, 405, "登录信息过期"),
+
+    PARAM_ERROR(false, 400, "参数错误");
 
     // 响应是否成功
     private Boolean success;
+
     // 响应状态码
     private Integer code;
+
     // 响应信息
     private String message;
 
