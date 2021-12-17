@@ -48,6 +48,20 @@ public class TokenUtil {
     }
 
     /**
+     * 更新token
+     * @param token
+     * @return
+     */
+    public static String updateToken(String token) {
+        Map<String, Object> parsedToken = parseToken(token);
+        int id = (int) parsedToken.get("id");
+        String username = (String) parsedToken.get("username");
+        int identity = (int) parsedToken.get("identity");
+
+        return sign(id, username, identity);
+    }
+
+    /**
      * 验证token
      * @param token
      * @return

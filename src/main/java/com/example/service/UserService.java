@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.pojo.Role;
 import com.example.pojo.User;
 
 import java.util.Map;
@@ -8,12 +9,18 @@ public interface UserService {
     // 用户注册
     public int userRegister(Map<String, Object> userInfo);
 
-    // 用户登录
-    public Map<String, Object> userLogin(User user);
-
     // 查询用户
     public User getUser(User user);
 
+    // 根据userId查询某个用户
+    public User getUserById(int userId);
+
     // 重置密码
-    public int resetPassword(Map<String, Object> userInfo);
+    public int resetPassword(User user);
+
+    // 获取用户角色
+    public Role getUserRole(User user);
+
+    // 删除用户
+    public Boolean deleteUser(int userId);
 }

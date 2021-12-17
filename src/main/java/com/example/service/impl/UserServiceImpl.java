@@ -5,12 +5,11 @@ import com.example.mapper.UserMapper;
 import com.example.pojo.Role;
 import com.example.pojo.User;
 import com.example.service.UserService;
+import com.example.util.Md5;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service("userService")
@@ -35,7 +34,7 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setUsername(username);
-        user.setPassword(password);
+        user.setPassword(Md5.MD5(password));
 
         System.out.println("user: " + user);
         System.out.println("roleId: " + roleId);
@@ -51,58 +50,67 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> userLogin(User user) {
-        // 查询当前用户信息
-        User currentUser = userMapper.selectUser(user);
-        Map<String, Object> result = new HashMap<>();
+    public Role getUserRole(User user) {
+        // 查询用户角色
+        Role role = roleMapper.selectRoleByUserId(user.getId());
 
-        // 当前用户存在
-        if (currentUser != null) {
-            // 查询用户角色
-            Role role = roleMapper.selectRoleByUserId(currentUser.getId());
-
-            currentUser.setRole(role);
-
-            System.out.println("role: " + role);
-
-            result.put("id", currentUser.getId());
-            result.put("username", currentUser.getUsername());
-            result.put("role", currentUser.getRole());
-
-            System.out.println("user: " + currentUser);
-            return result;
+        if (role != null) {
+            return role;
         }
 
         return null;
     }
 
+    @Override
+    public Boolean deleteUser(int userId) {
+        // 删除用户
+        int userRow = userMapper.deleteUser(userId);
+        // 删除用户绑定的角色
+        int roleRow = userMapper.deleteRoleIdByUserId(userId);
+
+        if (userRow != 0 && roleRow != 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * 查找用户
+     * @param user
+     * @return
+     */
     @Override
     public User getUser(User user) {
+        User currentUser = userMapper.selectUserByUsername(user);
+
+        // 用户是否存在
+        if (currentUser != null) {
+            return currentUser;
+        }
+
         return null;
     }
 
     @Override
-    public int resetPassword(Map<String, Object> userInfo) {
-        User user = new User();
-        String username = (String) userInfo.get("username");
-        String newPassword = (String) userInfo.get("newPassword");
+    public User getUserById(int userId) {
+        User user = userMapper.selectUserById(userId);
 
-        user.setUsername(username);
-        user.setPassword(newPassword);
-
-
-        // 判断该用户是否存在
-        User currentUser = userMapper.selectUser(user);
-
-        // 存在该用户
-        if (currentUser != null) {
-            userMapper.updateUser(user);
-
-            int userId = currentUser.getId();
-
-            return  userId;
+        if (user != null) {
+            return user;
         }
 
-        return 0;
+        return null;
+    }
+
+
+    @Override
+    public int resetPassword(User user) {
+        System.out.println("reset: " + user);
+        userMapper.updateUser(user);
+
+        int userId = user.getId();
+
+        return  userId;
     }
 }

@@ -17,9 +17,18 @@ public interface UserMapper {
     // 查询所有用户
     public List<User> selectAllUsers();
 
-    // 查询某个用户
-    public User selectUser(User user);
+    // 根据用户名查询某个用户
+    public User selectUserByUsername(User user);
+
+    // 根据id查询某个用户
+    public User selectUserById(int userId);
 
     // 更新某个用户
     public int updateUser(User user);
+
+    // 删除用户
+    public int deleteUser(int userId);
+
+    // 删除用户绑定的角色
+    public int deleteRoleIdByUserId(int userId);
 }
