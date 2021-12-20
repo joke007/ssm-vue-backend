@@ -23,6 +23,10 @@
         select * from ex_user where id=#{userId}
     </select>
 
+    <select id="selectUsers" resultType="User">
+        select * from ex_user
+    </select>
+
     <update id="updateUser" parameterType="User">
         update ex_user set username=#{username},password=#{password}
         <where>
