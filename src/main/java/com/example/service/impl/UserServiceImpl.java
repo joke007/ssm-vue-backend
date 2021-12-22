@@ -10,6 +10,7 @@ import com.example.util.Md5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service("userService")
@@ -90,6 +91,13 @@ public class UserServiceImpl implements UserService {
         }
 
         return null;
+    }
+
+    @Override
+    public List<User> getUsers() {
+        List<User> userList = userMapper.selectUsers();
+
+        return userList;
     }
 
     @Override
