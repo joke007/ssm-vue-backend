@@ -10,8 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7da2e57-cf95-4e37-a944-0c961adf8635" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/docker-ssm.7z" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/conf/my.cnf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/mysql/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/mysql/docker-entrypoint.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/mysql/example.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/tomcat/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-ssm/tomcat/ssm.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schedule/ScheduleExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schedule/ScheduleExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.sql" beforeDir="false" afterPath="$PROJECT_DIR$/example.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +61,22 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/SSMJWTDemo-main/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker-ssm/tomcat" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\programs\ssm\docker-ssm\tomcat" />
+      <recent name="D:\programs\ssm\ssm\tomcat" />
+      <recent name="D:\programs\ssm\ssm\mysql" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="excludedTypes">
@@ -163,11 +182,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639703785258</updated>
-      <workItem from="1639703791250" duration="34242000" />
+      <workItem from="1639703791250" duration="42733000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
